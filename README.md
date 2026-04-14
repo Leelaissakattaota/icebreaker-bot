@@ -1,158 +1,44 @@
-# LinkedIn Icebreaker Bot
+# 🤝 Icebreaker Bot — LinkedIn Profile RAG Q&A System
 
-An AI-powered assistant that generates personalized icebreakers and conversation starters based on LinkedIn profiles. Built with IBM watsonx.ai and LlamaIndex, it helps make professional introductions more personal and engaging.
+![Language](https://img.shields.io/badge/Language-Python%203.11-3776AB?style=flat-square&logo=python&logoColor=white)
+![RAG](https://img.shields.io/badge/RAG-LlamaIndex%20Vector%20DB-FF6B35?style=flat-square)
+![LLM](https://img.shields.io/badge/LLM-IBM%20Watsonx-052FAD?style=flat-square&logo=ibm&logoColor=white)
+![Source](https://img.shields.io/badge/Source-LinkedIn%20ProxyCurl%20API-0077B5?style=flat-square)
+![Focus](https://img.shields.io/badge/Focus-Profile%20Intelligence-2E7D32?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=flat-square)
 
-## 🌟 Features
+## 📌 Project Overview
+RAG-powered LinkedIn profile analyzer that extracts data via ProxyCurl API, stores it in a LlamaIndex vector database, generates ice-breaker facts, and answers Q&A about any person. Modular architecture with data extraction, processing, vector DB, and query engine modules.
 
-- **LinkedIn Profile Analysis**: Extract professional data using ProxyCurl API or use mock data
-- **AI-Powered Insights**: Generate interesting facts about a person's career/education 
-- **Personalized Q&A**: Answer specific questions about the person's background
-- **Two Interfaces**: Command-line tool for quick usage and web UI for user-friendly interaction
-- **Flexible**: Use mock data for practice or connect to real LinkedIn profiles
+**Domain:** RAG — LinkedIn Profile Intelligence  
+**LLM:** IBM Watsonx  
+**Vector DB:** LlamaIndex  
+**Data Source:** LinkedIn (ProxyCurl API + mock mode)
 
-## 🚀 Quick Start
+## 🛠️ Tech Stack
+| Component | Technology |
+|---|---|
+| Vector DB | LlamaIndex |
+| LLM | IBM Watsonx |
+| Profile Data | ProxyCurl API (LinkedIn) |
+| Text Splitting | LlamaIndex node parser |
+| UI | CLI / Gradio (app.py) |
 
-### Prerequisites
+## 📂 Modules
+- `data_extraction.py` — LinkedIn profile via ProxyCurl API
+- `data_processing.py` — Split profile + create vector DB
+- `query_engine.py` — Generate facts + Q&A
+- `llm_interface.py` — IBM Watsonx integration
+- Mock mode for testing without API keys
 
-- Python 3.11+, < 3.13
-- A ProxyCurl API key (optional - mock data available)
+## 🎓 Skills Demonstrated
+LlamaIndex RAG · LinkedIn data extraction · IBM Watsonx · Modular Python architecture · Profile intelligence Q&A
 
-### Installation
+## 📛 Suggested Name & Description
+**Name:** `icebreaker-bot`  
+**Description:** `LinkedIn profile RAG Q&A bot — ProxyCurl extraction + LlamaIndex vector DB + IBM Watsonx generates ice-breaker facts & answers profile questions`  
+**Topics:** `rag` `llamaindex` `ibm-watsonx` `linkedin` `python` `vector-database` `profile-intelligence` `nlp`
 
-1. Clone the repository:
-```bash
-git clone https://github.com/HaileyTQuach/icebreaker.git
-cd icebreaker
-```
-
-2. Create a virtual environment:
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-4. (Optional) Add your ProxyCurl API key to `config.py`:
-```python
-PROXYCURL_API_KEY = "your-api-key-here"
-```
-
-### Using the Command Line Interface
-
-Run the bot using the terminal:
-
-```bash
-# Use mock data (no API key needed)
-python main.py --mock
-
-# OR use a real LinkedIn profile
-python main.py --url "https://www.linkedin.com/in/username/" --api-key "your-api-key"
-```
-
-### Using the Web Interface
-
-Launch the web app:
-
-```bash
-python app.py
-```
-
-Then open your browser to the URL shown in the terminal (typically http://127.0.0.1:7860).
-
-## 🧠 How It Works
-
-The Icebreaker Bot uses a Retrieval-Augmented Generation (RAG) pipeline:
-
-1. **Data Extraction**: LinkedIn profile data is retrieved via ProxyCurl API or mock data
-2. **Text Processing**: Profile data is split into manageable chunks
-3. **Vector Embedding**: Text chunks are converted to vector embeddings using IBM watsonx
-4. **Storage**: Embeddings are stored in a vector database
-5. **Query & Generation**: When asked a question, relevant profile sections are retrieved and an IBM watsonx LLM generates contextually accurate responses
-
-## 🛠️ Project Structure
-
-```
-icebreaker_bot/
-├── requirements.txt           # Dependencies
-├── config.py                  # Configuration settings
-├── modules/
-│   ├── __init__.py
-│   ├── data_extraction.py     # LinkedIn profile data extraction
-│   ├── data_processing.py     # Data splitting and indexing
-│   ├── llm_interface.py       # LLM setup and interaction
-│   └── query_engine.py        # Query processing and response generation
-├── app.py                     # Gradio web interface
-└── main.py                    # CLI application
-```
-
-## 📝 Examples
-
-Here are some example questions you can ask:
-
-- "What is this person's current job title?"
-- "Where did they get their education?"
-- "What skills do they have related to machine learning?"
-- "How long have they been working at their current company?"
-- "What was their career progression?"
-
-## 🧪 Customization
-
-### Using Different LLM Models
-
-You can switch between available models:
-
-```bash
-python main.py --mock --model "meta-llama/llama-3-3-70b-instruct"
-```
-
-Or in the web interface, select from the dropdown menu.
-
-### Adjusting Response Style
-
-Edit the prompt templates in `config.py` to change how responses are generated:
-
-```python
-INITIAL_FACTS_TEMPLATE = """
-You are an AI assistant that provides detailed answers based on the provided context.
-...
-"""
-```
-
-## 👩‍💻 Development
-
-### For Beginners
-
-If you're learning to build this project from scratch, check out the `1-start` branch:
-
-```bash
-git checkout 1-start
-```
-
-This branch contains starter files with TODOs and guidance for implementation.
-
-### Running Tests
-
-Test individual components:
-
-```bash
-# Test data extraction
-python -c "from modules.data_extraction import extract_linkedin_profile; print(extract_linkedin_profile('https://www.linkedin.com/in/username/', mock=True))"
-
-# Test the entire pipeline
-python main.py --mock --test
-```
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🙏 Acknowledgments
-
-- IBM watsonx.ai for providing the LLM and embedding models
-- LlamaIndex for the data indexing and retrieval framework
-- ProxyCurl for LinkedIn profile data extraction
-- Eden Marco for the original tutorial inspiration
+## 🤝 Connect
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Leela%20A-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/leela-a)
+[![Gmail](https://img.shields.io/badge/Gmail-attotaleelaissak@gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:attotaleelaissak@gmail.com)
