@@ -33,12 +33,6 @@ RAG-powered LinkedIn profile analyzer that extracts data via ProxyCurl API, stor
 
 ## 🎓 Skills Demonstrated
 LlamaIndex RAG · LinkedIn data extraction · IBM Watsonx · Modular Python architecture · Profile intelligence Q&A
-
-## 📛 Suggested Name & Description
-**Name:** `icebreaker-bot`  
-**Description:** `LinkedIn profile RAG Q&A bot — ProxyCurl extraction + LlamaIndex vector DB + IBM Watsonx generates ice-breaker facts & answers profile questions`  
-**Topics:** `rag` `llamaindex` `ibm-watsonx` `linkedin` `python` `vector-database` `profile-intelligence` `nlp`
-
 ## 🤝 Connect
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Leela%20A-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/leela-a)
 [![Gmail](https://img.shields.io/badge/Gmail-attotaleelaissak@gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:attotaleelaissak@gmail.com)
